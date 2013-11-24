@@ -1,5 +1,7 @@
 @headerCellBgColor: #252525;
 @headerCellTextColor: #ffffff;
+@subHeaderCellBgColor: #bcbcbc;
+@subHeaderCellTextColor: #252525;
 @tableCellBorder: #eeeeee 1px solid;
 
 table.matrix {
@@ -18,6 +20,11 @@ table.matrix {
         padding: 10px;
         background-color: @headerCellBgColor;
         color: @headerCellTextColor;
+      }
+      &.subdomain {
+        padding: 10px;
+        background-color: @subHeaderCellBgColor;
+        color: @subHeaderCellTextColor;
       }
     }
   }
