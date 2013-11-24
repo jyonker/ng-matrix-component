@@ -1,32 +1,19 @@
-
-describe "AngularCafe", ->
-    AppCtrl = undefined
-    scope = undefined
-    location = undefined
-    controller = undefined
+describe "AppCtrl", ->
 
     beforeEach module("AngularCafe")
 
-    beforeEach inject(($rootScope, $controller, $location) ->
-        scope = $rootScope.$new()
-        location = $location
-        controller = $controller
+    beforeEach inject(($rootScope, $location, $controller) ->
+        @scope = $rootScope.$new()
+        @AppCtrl = $controller("AppCtrl",
+            $scope: @scope
+            $location: $location
+        )
     )
 
-    describe "AppCtrl", ->
-        beforeEach inject(($rootScope, $location) ->
-            scope = $rootScope.$new()
-            location = $location
-            AppCtrl = controller("AppCtrl",
-                $scope: scope
-                $location: location
-            )
-        )
-
-        it "should have an AppCtrl", ->
-            expect(AppCtrl).to.be.defined
-            AppCtrl.should.be.defined
-            assert.isDefined(AppCtrl,"fail message")
+    it "should have an AppCtrl", ->
+        expect(@AppCtrl).to.be.defined
+        @AppCtrl.should.be.defined
+        assert.isDefined(@AppCtrl,"fail message")
 
 
 

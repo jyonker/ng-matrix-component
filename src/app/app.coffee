@@ -6,6 +6,30 @@ angular.module("AngularCafe",["ngRoute", "ui.router", "templates-app", "template
     titleService.setSuffix " | AngularCafe Project Template"
 )
 .controller "AppCtrl", ($scope) ->
+    $scope.initiatives =
+        Web:
+            Angular:
+                wg1: 20
+                wg2: 10
+                wg3: 0
+            Grunt:
+                wg1: 30
+                wg2: 0
+                wg3: 30
+            LESS:
+                wg1: 0
+                wg2: 10
+                wg3: 10
+        Agile:
+            "TDD because it is the only way.":
+                wg1: 0
+                wg2: 0
+                wg3: 10
+            "Full Bower Integration":
+                wg1: 0
+                wg2: 30
+                wg3: 10
+
     $scope.features =
         Angular:
             wg1: 20
@@ -15,17 +39,9 @@ angular.module("AngularCafe",["ngRoute", "ui.router", "templates-app", "template
             wg1: 30
             wg2: 0
             wg3: 30
-        "LESS":
+        LESS:
             wg1: 0
             wg2: 10
-            wg3: 10
-        "TDD because it is the only way.":
-            wg1: 0
-            wg2: 0
-            wg3: 10
-        "Full Bower Integration":
-            wg1: 0
-            wg2: 30
             wg3: 10
 
     $scope.workgroups =

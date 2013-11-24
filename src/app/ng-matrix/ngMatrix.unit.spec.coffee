@@ -2,7 +2,7 @@ describe 'ngMatrix', ->
 
     beforeEach module('ngMatrix')
 
-    matrixData =
+    basicMatrixData =
         f1:
             wg1: 20
             wg2: 30
@@ -14,7 +14,7 @@ describe 'ngMatrix', ->
 
     describe 'basic matrix data', ->
         beforeEach inject ($compile, $rootScope) ->
-            $rootScope.matrixData = matrixData
+            $rootScope.matrixData = basicMatrixData
             @matrixElem = $compile('<matrix row-data="matrixData"></matrix>')($rootScope)
 
         it 'should create an Angular matrix component', ->
@@ -36,7 +36,7 @@ describe 'ngMatrix', ->
 
     describe 'column definition for matrix data', ->
         beforeEach inject ($compile, $rootScope) ->
-            $rootScope.matrixData = matrixData
+            $rootScope.matrixData = basicMatrixData
             $rootScope.matrixCols =
                 wg1:
                     title: 'Workgroup 1'
@@ -55,3 +55,48 @@ describe 'ngMatrix', ->
         it 'should only create cells for columns defined', ->
             matrixCells = @matrixElem.find('td')
             expect(matrixCells.length).to.equal(6)
+
+    subDomainMatrixData =
+        initiative1:
+            feature11:
+                wg1: 20
+                wg2: 30
+                wg3: 40
+            feature12:
+                wg1: 10
+                wg2: 0
+                wg3: 22
+        initiative2:
+            feature21:
+                wg1: 17
+                wg2: 12
+                wg3: 0
+            feature22:
+                wg1: 1
+                wg2: 27
+                wg3: 33
+            feature23:
+                wg1: 11
+                wg2: 2
+                wg3: 3
+
+    describe 'sub-domain matrix data', ->
+        beforeEach inject ($compile, $rootScope) ->
+            $rootScope.matrixData = subDomainMatrixData
+            $rootScope.matrixCols =
+                wg1:
+                    title: 'Workgroup 1'
+                wg2:
+                    title: 'Workgroup 2'
+                wg3:
+                    title: 'Workgroup 3'
+
+            @matrixElem = $compile('<matrix row-data="matrixData" col-defs="matrixCols"></matrix>')($rootScope)
+
+        it 'should create matrix with sub-domain', ->
+            expect(@matrixElem.find('td').length).to.equal(22)
+            matrixDomainCells = @matrixElem.find('td.domain')
+            expect(matrixDomainCells.length).to.equal(2)
+            expect(matrixDomainCells[0].rowSpan).to.equal(3)
+            expect(matrixDomainCells[1].rowSpan).to.equal(4)
+            expect(@matrixElem.find('td.subdomain').length).to.equal(5)
