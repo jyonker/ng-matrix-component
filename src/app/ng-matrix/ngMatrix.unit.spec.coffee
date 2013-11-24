@@ -20,16 +20,19 @@ describe 'ngMatrix', ->
         it 'should create an Angular matrix component', ->
             expect(@matrixElem).to.be.ok
             expect(@matrixElem.is('table')).to.be.true
+            expect(@matrixElem.hasClass('matrix')).to.be.true
 
         it 'should create a table with rows for each key in data', ->
             matrixRows = @matrixElem.find('tr')
             expect(matrixRows.length).to.equal(2)
-            expect(matrixRows[0].id).to.equal('mrow-f1')
-            expect(matrixRows[1].id).to.equal('mrow-f2')
 
         it 'should create cells in each row', ->
             matrixCells = @matrixElem.find('td')
-            expect(matrixCells.length).to.equal(6)
+            expect(matrixCells.length).to.equal(8)
+
+        it 'should have row header cell in each row', ->
+            rowHeaderCells = @matrixElem.find('td.domain')
+            expect(rowHeaderCells.length).to.equal(2)
 
     describe 'column definition for matrix data', ->
         beforeEach inject ($compile, $rootScope) ->
@@ -44,10 +47,11 @@ describe 'ngMatrix', ->
 
         it 'should create header cells for column definitions', ->
             matrixHeaders = @matrixElem.find('th')
-            expect(matrixHeaders.length).to.equal(2)
-            expect(matrixHeaders[0].innerHTML).to.equal('Workgroup 1')
-            expect(matrixHeaders[1].innerHTML).to.equal('Workgroup 3')
+            expect(matrixHeaders.length).to.equal(3)
+            expect(matrixHeaders[0].innerHTML).to.equal('')
+            expect(matrixHeaders[1].innerHTML).to.equal('Workgroup 1')
+            expect(matrixHeaders[2].innerHTML).to.equal('Workgroup 3')
 
         it 'should only create cells for columns defined', ->
             matrixCells = @matrixElem.find('td')
-            expect(matrixCells.length).to.equal(4)
+            expect(matrixCells.length).to.equal(6)

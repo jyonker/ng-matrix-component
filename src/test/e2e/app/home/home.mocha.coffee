@@ -42,8 +42,8 @@ describe "AngularCafe.home", ->
             expect(html).to.contain("h1");
             done()
 
-    it "should have a list", (done) ->
+    it "should have a matrix", (done) ->
         #expect(element("body").html()).toContain "ul"
         ptor.findElement(protractor.By.tagName('body')).getAttribute("innerHTML").then (html) ->
-            expect(html).to.contain("ul");
+            expect(html).to.contain("table");
             done()

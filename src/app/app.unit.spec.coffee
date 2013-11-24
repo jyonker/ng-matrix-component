@@ -28,9 +28,5 @@ describe "AngularCafe", ->
             AppCtrl.should.be.defined
             assert.isDefined(AppCtrl,"fail message")
 
-        it "should attach a list of features to scope", ->
-            expect(scope.features.length).to.equal 5
-            scope.features.length.should.equal 5
-            assert.equal(scope.features.length,5,"fail message")
 
 

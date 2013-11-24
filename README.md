@@ -51,11 +51,9 @@ replace **target** with one or more of the following:
 |------------------|---------------|
 |**dev**           |[reset build karma:unit karma:unit:run karma:midway karma:midway:run watch] builds the app, starts the test servers and starts the watch process to wait for changes|
 |**dev_server**    |[express:livereload express-keepalive open]starts an express livereload server to view changes to the app as they happen.|
-|**test_server**   |[shell:start_selenium] start the selenium webdriver server|
 |**e2e_mocha**     |[express:e2e simplemocha] run all e2e tests using mocha (only tests under the e2e test folder named \*.mocha.spec.[js\|coffee]) |
-|**e2e_karma**     |[express:e2e karma:ci_e2e] run all e2e tests using karma (only tests under the e2e test folder named \*.scenario.[js\|coffee]) |
+|**e2e_server**    |[shell:start_selenium] start the selenium webdriver server|
 |**test**          |[reset karma:ci_unit karma:ci_midway] clear all previous running servers, start test server, run unit + midway tests |
-|**run_test**      |[karma:unit:run karma:midway:run] this requires the test servers to be running in the background|
 |**build**         |[clean html2js jshint coffeelint coffee recess:build copy index]|
 |**compile**       |[compile:debug recess copy ngmin concat uglify index]|
 |**compile:debug** |[compile recess copy ngmin concat uglify index]|

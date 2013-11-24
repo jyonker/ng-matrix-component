@@ -1,0 +1,24 @@
+@headerCellBgColor: #252525;
+@headerCellTextColor: #ffffff;
+@tableCellBorder: #eeeeee 1px solid;
+
+table.matrix {
+  border: @tableCellBorder;
+  border-spacing: 1px;
+  tr {
+    th {
+      padding: 10px;
+      background-color: @headerCellBgColor;
+      color: @headerCellTextColor;
+    }
+    td {
+      padding: 5px;
+      border: @tableCellBorder;
+      &.domain {
+        padding: 10px;
+        background-color: @headerCellBgColor;
+        color: @headerCellTextColor;
+      }
+    }
+  }
+}

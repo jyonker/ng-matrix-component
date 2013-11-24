@@ -14,7 +14,6 @@ src/
   |  |- app.spec.js
   |- assets/
   |- common/
-  |  |- plusOneDirective/
   |  |- titleService/
   |- less/
   |  |- main.less

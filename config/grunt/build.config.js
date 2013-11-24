@@ -28,7 +28,6 @@ module.exports = {
         styles: '<%= folders.src %>/styles',
         test: {
             all: '<%= folders.src %>/test',
-            midway: '<%= folders.test.all %>/integration',
             e2e: '<%= folders.test.all %>/e2e'
         }
     },
@@ -39,7 +38,7 @@ module.exports = {
      * build tasks. `js` is all project javascript, less tests. `ctpl` contains
      * our reusable components' (`src/common`) template HTML files, while
      * `atpl` contains the same, but for our app's code. `html` is just our
-     * main HTML file, `less` is our main stylesheet, and `unit`, `midway` as
+     * main HTML file, `less` is our main stylesheet, and `unit` as
      * well as `e2e` contains our app's unit tests.
      */
     files: {
@@ -50,7 +49,6 @@ module.exports = {
                 '!<%= folders.src %>/app/app.coffee',
                 '!<%= folders.src %>/**/*.spec.coffee',
                 '!<%= folders.src %>/**/*.scenario.coffee',
-                '!<%= folders.test.midway %>/**/*.coffee',
                 '!<%= folders.test.e2e %>/**/*.coffee'
             ],
         test: {

@@ -17,7 +17,7 @@
 
 module.exports = { // recess
     build: {
-        src: [ '<%= folders.styles %>/main.less', '<%= files.vendor.css %>'],
+        src: [ '<%= folders.styles %>/*.less', '<%= files.vendor.css %>'],
         dest: '<%= folders.build %>/assets/css/<%= pkg.name %>.css',
         options: {
             compile: true,

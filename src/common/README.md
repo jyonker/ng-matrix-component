@@ -14,11 +14,9 @@ handle components that do not meet this pattern.
 ```
 src/
   |- common/
-  |  |- plusOneDirective/
   |  |- titleService/
 ```
 
-- `plusOneDirective` - a simple directive to load a Google +1 Button on an element.
 - `titleService` - a service to change the page title, complete with a
   consistent suffix.
 

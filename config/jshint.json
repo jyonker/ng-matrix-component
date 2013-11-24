@@ -21,7 +21,6 @@
   "smarttabs": true,
   "predef": [
     "browser",
-    "ngMidwayTester",
     "inject",
     "describe",
     "describe",
