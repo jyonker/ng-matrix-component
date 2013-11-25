@@ -100,3 +100,27 @@ describe 'ngMatrix', ->
             expect(matrixDomainCells[0].rowSpan).to.equal(3)
             expect(matrixDomainCells[1].rowSpan).to.equal(4)
             expect(@matrixElem.find('td.subdomain').length).to.equal(5)
+
+    describe 'sub-range matrix data', ->
+        beforeEach inject ($compile, $rootScope) ->
+            $rootScope.matrixData = subDomainMatrixData
+            $rootScope.matrixCols =
+                cg1:
+                    title: 'Capacity Group 1'
+                    children:
+                        wg1:
+                            title: 'Workgroup 1'
+                        wg2:
+                            title: 'Workgroup 2'
+                cg2:
+                    title: 'Capacity Group 2'
+                    children:
+                        wg3:
+                            title: 'Workgroup 3'
+
+            @matrixElem = $compile('<matrix row-data="matrixData" col-defs="matrixCols"></matrix>')($rootScope)
+
+        it 'should create matrix with sub-range', ->
+            expect(@matrixElem.find('th.range').length).to.equal(2)
+            expect(@matrixElem.find('th.subrange').length).to.equal(3)
+            expect(@matrixElem.find('th').length).to.equal(9)

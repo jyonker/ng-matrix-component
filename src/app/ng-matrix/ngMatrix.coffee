@@ -9,31 +9,46 @@ ngMatrixModule.directive 'matrix', () ->
             colDefs = scope[attrs.colDefs]
             rowData = scope[attrs.rowData]
 
-            if colDefs
-                headerRow = _createHeaderRow(colDefs)
-
             for key, row of rowData
                 matrixRow = angular.element "<tr></tr>"
-                hasSubDomain = _hasSubDomain(row)
+                hasSubDomain = _hasSubData(row)
                 if hasSubDomain
                     _createMatrixRowsWithSubDomain(matrixRow, key, row)
                 else
                     _createMatrixRow(matrixRow, key, row, colDefs)
 
-            headerRow.prepend "<th></th>" if hasSubDomain
+            if colDefs
+                _createHeaderRow(colDefs, hasSubDomain)
 
-        _createHeaderRow = (colDefs) ->
+        _createHeaderRow = (colDefs, hasSubDomain) ->
             headerRow = angular.element '<tr></tr>'
             headerRow.append "<th></th>"
-            for col, def of colDefs
-                headerRow.append "<th>#{def.title}</th>"
+            for col, rangeValue of colDefs
+                hasSubRange = true if rangeValue.children
+                if hasSubRange
+                    rangeSize = _.size(angular.copy(rangeValue.children))
+                    headerRow.append "<th class='range' colspan='#{rangeSize}'>#{rangeValue.title}</th>"
+                else
+                    headerRow.append "<th class='range'>#{rangeValue.title}</th>"
 
-            element.append headerRow
+            headerRow.prepend "<th></th>" if hasSubDomain
+            subHeaderRow = _createSubHeaderRow(colDefs)
+            subHeaderRow.prepend "<th></th>" if hasSubDomain
 
-            return headerRow
+            element.prepend subHeaderRow if hasSubRange
+            element.prepend headerRow
 
-        _hasSubDomain = (row) ->
-            return (_.size(angular.copy(row[_.keys(row)[0]])) > 0)
+        _createSubHeaderRow = (colDefs) ->
+            subHeaderRow = angular.element '<tr></tr>'
+            subHeaderRow.append "<th></th>"
+            for col, rangeValue of colDefs
+                for subCol, subRangeValue of rangeValue.children
+                    subHeaderRow.append "<th class='subrange'>#{subRangeValue.title}</th>"
+
+            return subHeaderRow
+
+        _hasSubData = (data) ->
+            return (_.size(angular.copy(data[_.keys(data)[0]])) > 0)
 
         _createMatrixRowsWithSubDomain = (matrixRow, key, row) ->
             domainSize = _.size(angular.copy(row))

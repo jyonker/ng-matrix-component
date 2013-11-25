@@ -51,3 +51,17 @@ angular.module("AngularCafe",["ngRoute", "ui.router", "templates-app", "template
             title: "Wondermunt"
         wg3:
             title: "Lions"
+
+    $scope.capacityGroups =
+        cg1:
+            title: 'Capacity Group 1'
+            children:
+                wg1:
+                    title: 'Workgroup 1'
+                wg2:
+                    title: 'Workgroup 2'
+        cg2:
+            title: 'Capacity Group 2'
+            children:
+                wg3:
+                    title: 'Workgroup 3'
