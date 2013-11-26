@@ -3,65 +3,65 @@ angular.module("AngularCafe",["ngRoute", "ui.router", "templates-app", "template
     $urlRouterProvider.otherwise "/home"
 )
 .run((titleService) ->
-    titleService.setSuffix " | AngularCafe Project Template"
+    titleService.setSuffix " | ng-matrix"
 )
 .controller "AppCtrl", ($scope) ->
-    $scope.initiatives =
+    $scope.withsubdomains =
         Web:
             Angular:
-                wg1: 20
-                wg2: 10
-                wg3: 0
+                g1: 20
+                g2: 10
+                g3: 0
             Grunt:
-                wg1: 30
-                wg2: 0
-                wg3: 30
+                g1: 30
+                g2: 0
+                g3: 30
             LESS:
-                wg1: 0
-                wg2: 10
-                wg3: 10
+                g1: 0
+                g2: 10
+                g3: 10
         Agile:
             "TDD because it is the only way.":
-                wg1: 0
-                wg2: 0
-                wg3: 10
+                g1: 0
+                g2: 0
+                g3: 10
             "Full Bower Integration":
-                wg1: 0
-                wg2: 30
-                wg3: 10
+                g1: 0
+                g2: 30
+                g3: 10
 
-    $scope.features =
+    $scope.domains =
         Angular:
-            wg1: 20
-            wg2: 10
-            wg3: 0
+            g1: 20
+            g2: 10
+            g3: 0
         Grunt:
-            wg1: 30
-            wg2: 0
-            wg3: 30
+            g1: 30
+            g2: 0
+            g3: 30
         LESS:
-            wg1: 0
-            wg2: 10
-            wg3: 10
+            g1: 0
+            g2: 10
+            g3: 10
 
-    $scope.workgroups =
-        wg1:
+    $scope.ranges =
+        g1:
             title: "Space Age"
-        wg2:
+        g2:
             title: "Wondermunt"
-        wg3:
+        g3:
             title: "Lions"
 
-    $scope.capacityGroups =
-        cg1:
-            title: 'Capacity Group 1'
+    $scope.withsubranges =
+        a1:
+            title: 'Group 1'
             children:
-                wg1:
-                    title: 'Workgroup 1'
-                wg2:
-                    title: 'Workgroup 2'
-        cg2:
-            title: 'Capacity Group 2'
+                g1:
+                    title: 'Z1'
+                g2:
+                    title: 'Z2'
+        a2:
+            title: 'Group 2'
             children:
-                wg3:
-                    title: 'Workgroup 3'
+                g3:
+                    title: 'Z3'

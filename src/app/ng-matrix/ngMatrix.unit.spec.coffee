@@ -3,14 +3,14 @@ describe 'ngMatrix', ->
     beforeEach module('ngMatrix')
 
     basicMatrixData =
-        f1:
-            wg1: 20
-            wg2: 30
-            wg3: 40
-        f2:
-            wg1: 10
-            wg2: 0
-            wg3: 22
+        a1:
+            z1: 20
+            z2: 30
+            z3: 40
+        a2:
+            z1: 10
+            z2: 0
+            z3: 22
 
     describe 'basic matrix data', ->
         beforeEach inject ($compile, $rootScope) ->
@@ -38,9 +38,9 @@ describe 'ngMatrix', ->
         beforeEach inject ($compile, $rootScope) ->
             $rootScope.matrixData = basicMatrixData
             $rootScope.matrixCols =
-                wg1:
+                z1:
                     title: 'Workgroup 1'
-                wg3:
+                z3:
                     title: 'Workgroup 3'
 
             @matrixElem = $compile('<matrix row-data="matrixData" col-defs="matrixCols"></matrix>')($rootScope)
@@ -57,39 +57,39 @@ describe 'ngMatrix', ->
             expect(matrixCells.length).to.equal(6)
 
     subDomainMatrixData =
-        initiative1:
-            feature11:
-                wg1: 20
-                wg2: 30
-                wg3: 40
-            feature12:
-                wg1: 10
-                wg2: 0
-                wg3: 22
-        initiative2:
-            feature21:
-                wg1: 17
-                wg2: 12
-                wg3: 0
-            feature22:
-                wg1: 1
-                wg2: 27
-                wg3: 33
-            feature23:
-                wg1: 11
-                wg2: 2
-                wg3: 3
+        a1:
+            b11:
+                z1: 20
+                z2: 30
+                z3: 40
+            b12:
+                z1: 10
+                z2: 0
+                z3: 22
+        a2:
+            b21:
+                z1: 17
+                z2: 12
+                z3: 0
+            b22:
+                z1: 1
+                z2: 27
+                z3: 33
+            b23:
+                z1: 11
+                z2: 2
+                z3: 3
 
     describe 'sub-domain matrix data', ->
         beforeEach inject ($compile, $rootScope) ->
             $rootScope.matrixData = subDomainMatrixData
             $rootScope.matrixCols =
-                wg1:
-                    title: 'Workgroup 1'
-                wg2:
-                    title: 'Workgroup 2'
-                wg3:
-                    title: 'Workgroup 3'
+                z1:
+                    title: 'Zebra 1'
+                z2:
+                    title: 'Zebra 2'
+                z3:
+                    title: 'Zebra 3'
 
             @matrixElem = $compile('<matrix row-data="matrixData" col-defs="matrixCols"></matrix>')($rootScope)
 
@@ -105,18 +105,18 @@ describe 'ngMatrix', ->
         beforeEach inject ($compile, $rootScope) ->
             $rootScope.matrixData = subDomainMatrixData
             $rootScope.matrixCols =
-                cg1:
-                    title: 'Capacity Group 1'
+                g1:
+                    title: 'Group 1'
                     children:
-                        wg1:
-                            title: 'Workgroup 1'
-                        wg2:
-                            title: 'Workgroup 2'
-                cg2:
-                    title: 'Capacity Group 2'
+                        z1:
+                            title: 'Z1'
+                        z2:
+                            title: 'Z2'
+                g2:
+                    title: 'Group 2'
                     children:
-                        wg3:
-                            title: 'Workgroup 3'
+                        z3:
+                            title: 'Z3'
 
             @matrixElem = $compile('<matrix row-data="matrixData" col-defs="matrixCols"></matrix>')($rootScope)
 
