@@ -27,8 +27,8 @@ describe 'ngMatrix', ->
             expect(matrixRows.length).to.equal(2)
 
         it 'should create cells in each row', ->
-            matrixCells = @matrixElem.find('td')
-            expect(matrixCells.length).to.equal(8)
+            matrixCells = @matrixElem.find('td.cellvalue')
+            expect(matrixCells.length).to.equal(6)
 
         it 'should have row header cell in each row', ->
             rowHeaderCells = @matrixElem.find('td.domain')

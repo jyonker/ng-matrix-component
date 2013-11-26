@@ -60,15 +60,16 @@ ngMatrixModule.directive 'matrix', () ->
                 domainRow.append "<td class='subdomain'>#{innerKey}</td>"
 
                 for subKey, subValue of value
-                    domainRow.append "<td>#{subValue}</td>"
+                    domainRow.append "<td class='cellvalue'>#{subValue}</td>"
 
                 element.append domainRow
 
         _createMatrixRow = (matrixRow, key, row, colDefs) ->
             matrixRow.append "<td class='domain'>#{key}</td>"
             for innerKey, value of row
-                matrixRow.append "<td>#{value}</td>" if (colDefs and colDefs[innerKey]) or not colDefs
+                matrixRow.append "<td class='cellvalue'>#{value}</td>" if (colDefs and colDefs[innerKey]) or not colDefs
 
             element.append matrixRow
 
         loadData()
+
