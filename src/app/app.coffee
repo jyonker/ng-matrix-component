@@ -57,11 +57,11 @@ angular.module("AngularCafe",["ngRoute", "ui.router", "templates-app", "template
             title: 'Group 1'
             children:
                 g1:
-                    title: 'Z1'
+                    title: 'Space Age'
                 g2:
-                    title: 'Z2'
+                    title: 'Wondermunt'
         a2:
             title: 'Group 2'
             children:
                 g3:
-                    title: 'Z3'
+                    title: 'Lions'
