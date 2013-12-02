@@ -2,6 +2,8 @@
 
 A matrix grid with dynamic domain and range.
 
+[![Stories in Ready](https://badge.waffle.io/csterwa/ng-matrix-component.png?label=ready)](http://waffle.io/csterwa/ng-matrix-component)
+
 ## Quick Start
 
 ### Installation
