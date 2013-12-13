@@ -18,6 +18,12 @@ module.exports = { // copy
                 dest: '<%= folders.build %>',
                 cwd: '<%= folders.assets %>',
                 expand: true
+            },
+            {
+                src: ['**'],
+                dest: '<%= folders.build %>/data/',
+                cwd: '<%=folders.src %>/data/',
+                expand: true
             }
         ]
     },

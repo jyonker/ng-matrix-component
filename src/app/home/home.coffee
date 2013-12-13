@@ -25,7 +25,7 @@ this way makes each module more "self-contained".
 ###
 And of course we define a controller for our route.
 ###
-angular.module("AngularCafe.home", ["templates-app", "templates-common", "ui.router", "titleService"])
+angular.module("AngularCafe.home", ["templates-app", "templates-common", "ui.router", "titleService", "resources"])
     .config(($stateProvider) ->
         $stateProvider.state "home",
             url: "/home"
@@ -35,5 +35,11 @@ angular.module("AngularCafe.home", ["templates-app", "templates-common", "ui.rou
                     templateUrl: "home/home.tpl.html"
 
     )
-    .controller "HomeCtrl", ($scope, titleService) ->
+    .controller "HomeCtrl", ($scope, titleService, jsonDataResource) ->
         titleService.setTitle "Home"
+
+        jsonDataResource.get(
+            filename: "test.json"
+        , (responseData) ->
+            console.log(responseData)
+        )
